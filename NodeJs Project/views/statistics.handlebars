@@ -1,0 +1,169 @@
+{{#if data}}
+	{{#each data}}
+		<div class="panel panel-success">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{this.title}}</h3>
+			</div>
+			<div class="panel-body">
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Age Categories</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="{{this.ageId}}"></canvas>
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Genders</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="{{this.genderId}}"></canvas>
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Check ins last week</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="{{this.weekId}}"></canvas>
+					</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h3 class="panel-title">Average of check ins the last 30 days</h3>
+					</div>
+					<div class="panel-body">
+						<canvas id="{{this.avgId}}"></canvas>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	{{/each}}
+{{else}}
+	You haven't created any apps. Click <a href="/">here</a> to create one.
+{{/if}}
+
+<canvas id="test"></canvas>
+
+<script type="text/javascript">
+	{{#if data}}
+		{{#each data}}
+			var {{this.ageId}} = new Chart(document.getElementById("{{this.ageId}}").getContext('2d'), {
+			    type: 'doughnut',
+			    data: {
+			        labels: ["Below 13", "13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "Above 65", "Unknown"],
+			        datasets: [
+			            {
+			                data: [{{this.ageCategories}}],
+			                backgroundColor: ["#42FFC0", "#FFF600", "#CA44FF", "#7F7F7F", "#FF3550", "#3589FF", "#FFB05B", "#B6EF5F", "#CCCCCC"],
+			                hoverBackgroundColor: ["#A3FFE3", "#FFFA7C", "#E4A5FF", "#B5B5B5", "#FF99AB", "#99C3FF", "#FFD4B7", "#D2EDA1", "#D3D3D3"]
+			            }
+			        ]
+			    },
+			    options: {
+				    scales: {
+				        yAxes: [{
+				            ticks: {
+				                beginAtZero: true
+				            }
+				        }]
+				    }
+				}
+			});
+			
+			var {{this.avgId}} = new Chart(document.getElementById("{{this.avgId}}"), {
+			    type: 'line',
+			    data: {
+			        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+			        datasets: [{
+			            label: 'Average of last 30 days',
+			            data: [{{this.daysAvg}}]
+			        }]
+			    },
+			    options: {
+			    	responsive: true,
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+
+			var labelsWeek = [];
+			{{#each this.weekLabels}}
+				labelsWeek.push("{{this.value}}");
+			{{/each}}
+
+			var myBarChart = new Chart(document.getElementById("{{this.weekId}}").getContext('2d'), {
+			    type: 'bar',
+			    data: {
+			        labels: labelsWeek,
+			        datasets: [{
+			            label: '# of CheckIns the past week',
+			            data: [{{this.weekData}}],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.6)',
+			                'rgba(54, 162, 235, 0.6)',
+			                'rgba(255, 206, 86, 0.6)',
+			                'rgba(75, 192, 192, 0.6)',
+			                'rgba(153, 102, 255, 0.6)',
+			                'rgba(255, 159, 64, 0.6)',
+			                'rgba(255, 99, 132, 0.6)'
+
+			            ],
+			            borderColor: [
+			                'rgba(255,99,132,1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+			});
+
+			var myPieChart = new Chart(document.getElementById("{{this.genderId}}").getContext('2d'), {
+			    type: 'pie',
+			    data: {
+			        labels: ["Male", "Female", "Unknown"],
+			        datasets: [
+			            {
+			                data: [{{this.genders}}],
+			                backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+			                hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
+			            }
+			        ]
+			    },
+			    options: {
+			        responsive: true
+			    }
+			});
+
+
+
+		{{/each}}
+	{{/if}}
+
+	
+</script>

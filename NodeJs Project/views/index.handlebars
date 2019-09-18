@@ -1,0 +1,267 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Application Information</h3>
+	</div>
+	<div class="panel-body">
+		<form method="post" action="/" enctype="multipart/form-data">
+
+			<div class="form-group">
+				<span title="Type application's title.">
+			    <label>Application's title</label> </br>
+			    <input type="text" name="appname" class="form-control" placeholder="Title" required>
+			    </span>
+			</div>
+
+			<div class="form-group">
+			    <span title="Type application's information.">
+			    <label>Application's message</label>
+			    <input type="text" class="form-control" name="appmessage" placeholder="Message" required>
+			</div>
+
+			<div class="form-group">
+				<span title="Select application's image.">
+				 <label>Application's Image</label>
+				 <input type="file" id="shopimage" name="appimage" accept="image/*"  required/>
+				 </span>
+			</div>
+
+			<div class="form-group">
+				<span title="Select application's color.">
+			    <label>Application's color</label> </br>
+			    <input type="color" name="appcolor" value="#ff0000" required>
+			    </span>
+			</div>
+
+			<div class="form-group">
+				<span title="Select your shop's street address.">
+			  	<label>Street</label>
+			  	<input id="autocomplete" class="form-control" name="street" placeholder="Enter adress" type="text" required>
+			  	<input id="latlng" name="latlng" type="text">
+			  	</span>
+			</div>
+
+			<div class="form-group">
+				<span title="Select your local currency.">
+			    <label>Currency</label>
+			    <select name="currency" class="form-control" required>
+			  		<option value="EUR€">EUR €</option>
+	                <option value="USD$">USD $</option>
+			    </select>
+			    </span>
+			</div>
+
+			<div class="panel panel-info">
+			  	<div class="panel-heading">
+			  		<h4 class="panel-title">Application's contact information</h4>
+			  	</div>
+			  	<div class="panel-body">
+			  		<div class="form-group">
+			  			<span title="Type an email address as contact info for customers.">
+					    <label>Email</label>
+					    <input type="email" class="form-control" name="email" placeholder="Email" required>
+					    </span>
+					</div>
+					<div class="form-group">
+						<span title="Type a phone number as contact info for customers.(Not required)">
+					    <label>Phone</label>
+					    <input type="tel" class="form-control" name="phone" placeholder="phone" pattern="[0-9]{10}">
+					    </span>
+					</div>
+			  	</div>
+			</div>
+		
+			  	
+
+			<button type="submit" name="btn" value="apk" class="btn btn-success">Create APK</button>
+
+		</form>
+		</br>
+
+		<div class="panel panel-info">
+		<div class="panel-heading">
+		  	<h4 class="panel-title">List Item</h4>
+		</div>
+		<div class="panel-body">
+		  	<form method="post" action="/" enctype="multipart/form-data">
+		  		<div class="form-group">
+		  			<span title="Select an image of your product.">
+			 		<label>Image</label>
+			 		<input type="file" name="appimage" id="appimage"accept="image/*" required/>
+			 		</span>
+			 	</div>
+			 	<div class="form-group">
+			 		<span title="Type the title of your product.">
+			 		<label>Title</label>
+			 		<input type="text" name="apptitle" class="form-control" required/>
+			 	</div>
+			 	<div class="form-group">
+			 		<span title="Type the description of your product.">
+			 		<label>Description</label>
+			 		<input type="text" name="appdec" class="form-control" required/>
+			 		</span>
+			 	</div>
+			 	<div class="form-group">
+			 		<span title="Enter a price for your product.">
+			 		<label>Price</label>
+			 		<input type="number" name="appprice" min="0" step="0.01" class="form-control" required>
+			 		</span>
+			 	</div>
+			 	<button type="submit" name="btn" class="btn btn-sm btn-primary" value="item">Insert Item</button>
+			 </div>	
+			 </form>
+		</div> 	
+
+		<div class="panel panel-info">
+		  	<div class="panel-heading">
+		  		<h4 class="panel-title">Offers</h4>
+		  	</div>
+		  	<div class="panel-body">
+			  	<form method="post" action="/" enctype="multipart/form-data">
+			  		<div class="form-group">
+			  			<span title="Select an image for your offer.">
+				 		<label>Image</label>
+				 		<input type="file" id="offerimage" name="appimage" accept="image/*"  required/>
+				 		</span>
+				 	</div>
+				 	<div class="form-group">
+				 		<span title="Type the title of your offer.">
+				 		<label>Title</label>
+				 		<input type="text" name="offertitle" class="form-control" required/>
+				 		</span>
+				 	</div>
+				 	<div class="form-group">
+				 		<span title="Type the description of your offer.">
+				 		<label>Description</label>
+				 		<input type="text" name="offerdec" class="form-control" required/>
+				 		</span>
+				 	</div>
+				 	<div class="form-group">
+				 		<span title="Enter the points required to acquire the offer.">
+				 		<label>Points</label>
+				 		<input type="number" name="offerpoints" min="0" step="5" class="form-control" required>
+				 		</span>
+				 	</div>
+				 	<button type="submit" name="btn" class="btn btn-sm btn-primary" value="offer">Insert Item</button>
+				 	
+				</form>
+			</div>
+
+		</div> 
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	var shopimage = document.getElementById("shopimage");
+
+	shopimage.addEventListener("input", function (event) {
+			var str = shopimage.value.split(/(\\|\/)/g).pop();
+			var str = str.split('.').slice(0, -1).join('.');
+			
+			if(str.match(/^([a-z0-9_]{1,})$/)) {
+				shopimage.setCustomValidity("");
+				var firstLetter = str.substring(0,1);
+				if(!firstLetter.match(/^([a-z])$/)) {
+					shopimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+				}
+			}
+			else {
+				shopimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+			}
+		
+	}, false);
+
+	var form = document.getElementsByTagName('form')[0];
+	form.addEventListener("submit", function (event) {
+			if(!shopimage.validity.valid) {
+				event.preventDefault();
+			}
+		
+	}, false);
+	
+	var appimage = document.getElementById("appimage");
+
+	appimage.addEventListener("input", function (event) {
+			appimage.setCustomValidity("");
+			var str = appimage.value.split(/(\\|\/)/g).pop();
+			var str = str.split('.').slice(0, -1).join('.');
+			
+			if(str.match(/^([a-z0-9_]{1,})$/)) {
+
+				var firstLetter = str.substring(0,1);
+				if(!firstLetter.match(/^([a-z])$/)) {
+					appimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+				}
+			}
+			else {
+				appimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+			}
+		
+	}, false);
+
+	form = document.getElementsByTagName('form')[1];
+	form.addEventListener("submit", function (event) {
+			if(!appimage.validity.valid) {
+				event.preventDefault();
+			}
+		
+	}, false);
+
+	var offerimage = document.getElementById("offerimage");
+
+	offerimage.addEventListener("input", function (event) {
+			var str = offerimage.value.split(/(\\|\/)/g).pop();
+			var str = str.split('.').slice(0, -1).join('.');
+			offerimage.setCustomValidity("");
+			if(str.match(/^([a-z0-9_]{1,})$/)) {
+
+				var firstLetter = str.substring(0,1);
+				if(!firstLetter.match(/^([a-z])$/)) {
+					offerimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+				}
+			}
+			else {
+				offerimage.setCustomValidity("Name must be [a-z 0-9 _] and first character must be a letter.");
+			}
+		
+	}, false);
+
+	form = document.getElementsByTagName('form')[2];
+	form.addEventListener("submit", function (event) {
+			if(!offerimage.validity.valid) {
+				event.preventDefault();
+			}
+		
+	}, false);
+
+</script>
+
+<script>
+		var autocomplete;
+
+		document.getElementById("latlng").style.display = "none";
+
+		function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+
+		function fillInAddress() {
+			var place = autocomplete.getPlace();
+
+			if(!place.geometry) {
+				window.alert("No details available for input: '" + place.name + "'");
+				return;
+			}
+
+			var latlng = "/" + place.geometry.location.lat() + "/" + place.geometry.location.lng();
+			document.getElementById("latlng").value = latlng;
+		}
+	</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5eRN7mMZzxJb8xfyPBX_qqnOSG6dxKsY&libraries=places&callback=initAutocomplete"
+        async defer></script>

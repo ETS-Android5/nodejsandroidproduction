@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Το Κατάστημά μου</string>
+    <string name="action_settings">Settings</string>
+    <string name="basic_info">Βασικές Πληροφορίες</string>
+
+    <string name="currency">EUR€</string>
+
+    <!-- Strings for product list -->
+    <string name="productImages">coffee/wine/juice</string>
+    <string name="productTitles">Καφές/wine/juice</string>
+    <string name="productDetails">An tasty coffee./One glass of ref wine./One fresh orange juice. Γεια</string>
+    <string name="productPrices">5/4/6</string>
+
+    <!-- Strings for gift list -->
+    <string name="giftImages">coffee/juice</string>
+    <string name="giftTitles">coffee/juice</string>
+    <string name="giftDetails">Happy Hour./Fresh Hour.</string>
+    <string name="giftPoints">20/10</string>
+
+    <!-- Lat & Lng -->
+    <string name="street">Μιχαλακοπούλου 14, Kalamaria, Greece/40.57168950000001/22.954912599999943</string>
+
+    <string name="shop_image">dji_0026</string>
+    <string name="phone_contact">321321313</string>
+    <string name="email_contact">giorgos@gmail.com</string>
+
+    <!-- Application's id inside database -->
+    <string name="appId">appId</string>
+    <string name="userId">userId</string>
+    <string name="server_client_id">server_client_id</string>
+    <string name="server_client_secret">server_client_secret</string>
+
+    <!-- Distance from shop in order to check in -->
+    <string name="distance_from_shop">20000000</string>
+
+</resources>

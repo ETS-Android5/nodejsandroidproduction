@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/list_item_product_whole" android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="?android:listPreferredItemHeight"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/image_gift" android:layout_width="0.0dip" android:layout_height="?android:listPreferredItemHeight" android:scaleType="fitCenter" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:paddingLeft="10.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="2.0">
+        <TextView android:textSize="15.0sp" android:textStyle="bold" android:id="@id/gift_title" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="2.0" />
+        <TextView android:textSize="10.0sp" android:id="@id/gift_details" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    </LinearLayout>
+    <TextView android:textSize="20.0sp" android:textStyle="bold" android:id="@id/gift_points" android:paddingRight="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+</LinearLayout>

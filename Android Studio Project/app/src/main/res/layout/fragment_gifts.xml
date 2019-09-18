@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="android.gr.katastima.MainActivity$PlaceholderFragment">
+
+    <TextView
+        android:id="@+id/pointsTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:textColor="#FFF"
+        android:text="POINTS()"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/checkInBtn"
+        android:text="Check in"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:background="#3F51B5"
+        android:textColor="#FFF"
+        android:textSize="17sp"
+        />
+
+    <ListView
+        android:id="@+id/list_of_gifts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:layout_above="@+id/checkInBtn"
+        android:layout_below="@+id/pointsTxt"></ListView>
+
+
+
+</RelativeLayout>
