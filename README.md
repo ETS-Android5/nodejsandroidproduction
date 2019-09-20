@@ -1,7 +1,7 @@
 # Android application constructed at the backend of an Node.js application
 
 ### Tools
-* __Web application__ : Node.js, MongoDB, npm, git, sublime text
+* __Web application__ : Node.js, Express, MongoDB, npm, git, sublime text
 * __Android application__ : Java, Android Studio
 * __Apis__: Google's authentication api
 
