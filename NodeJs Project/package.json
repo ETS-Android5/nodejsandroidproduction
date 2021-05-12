@@ -13,7 +13,7 @@
     "bcryptjs": "*",
     "bluebird": "^3.5.1",
     "body-parser": "*",
-    "chart.js": "^2.7.2",
+    "chart.js": "^2.9.4",
     "connect-flash": "*",
     "cookie-parser": "^1.4.1",
     "express": "*",
